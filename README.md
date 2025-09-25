@@ -27,34 +27,6 @@ Główne Funkcjonalności
 
     GUI (Qt6): Intuicyjny interfejs graficzny do zarządzania regułami (za pomocą QTableView i TriggerModel), kontroli monitoringu oraz podglądu logów systemowych i statusu.
 
-Struktura Pliku Konfiguracyjnego (JSON)
-
-Reguły są grupowane w pliku konfiguracyjnym według klucza VID:PID. Każdy klucz zawiera tablicę (listę) akcji do wykonania dla danego urządzenia.
-
-Przykład pliku triggers.json:
-JSON
-
-{
-  "1234:abcd": [
-    {
-      "action_args": ["-p", "/mnt/dane"],
-      "action_script": "/home/user/autmount.sh",
-      "auth_required": false,
-      "delay_sec": 5
-    }
-  ],
-  "04f2:0120": [
-    {
-      "action_args": [],
-      "action_script": "/usr/local/bin/run_webcam_app",
-      "auth_required": true,
-      "delay_sec": 0
-    }
-  ]
-}
-
-Wymagania i Zależności
-
 Wymagania Systemowe
 
     System Operacyjny: Linux (wymagana biblioteka libudev).
@@ -71,25 +43,8 @@ Zależności (do Kompilacji)
 
 Budowanie Projektu (Kompilacja)
 
-Projekt wykorzystuje standardowy proces budowania oparty na CMake.
-
-    Utwórz katalog kompilacji:
-    Bash
-
-mkdir build
-cd build
-
-Skonfiguruj projekt:
-Bash
-
-cmake ..
-
-(Upewnij się, że system odnajdzie wszystkie wymagane pakiety Qt6 i libudev).
-
-Zbuduj aplikację:
-Bash
-
-    cmake --build .
+cmake -B build
+cmake --build build -j$(nproc)
 
 Po pomyślnej kompilacji, plik wykonywalny autotriggers_gui znajdzie się w katalogu build.
 
