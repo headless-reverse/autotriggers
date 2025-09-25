@@ -43,8 +43,8 @@ Zależności (do Kompilacji)
 
 Budowanie Projektu (Kompilacja)
 
-cmake -B build
-cmake --build build -j$(nproc)
+    cmake -B build
+    cmake --build build -j$(nproc)
 
 Po pomyślnej kompilacji, plik wykonywalny autotriggers_gui znajdzie się w katalogu build.
 
