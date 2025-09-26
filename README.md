@@ -59,3 +59,5 @@ Plik CMakeLists.txt definiuje:
     Wymaga znalezienia Qt6::Widgets oraz modułu libudev za pomocą PkgConfig.
 
     Łączy binarny plik wykonywalny z bibliotekami Qt6::Widgets i libudev.
+
+Dostepna również wersja CLI oparta na fork oraz funkcja --daemon
